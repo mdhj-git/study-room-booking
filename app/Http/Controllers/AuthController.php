@@ -48,10 +48,12 @@ class AuthController extends Controller
             'email' => 'بيانات الدخول غير صحيحة',
         ]);
     }
-    public function logout()
+    public function logout(Request $request)
     {
         auth()->logout();
-        return redirect('/login');
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login');
     }
 
 }
