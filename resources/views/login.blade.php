@@ -3,7 +3,7 @@
 
 
     <label for="email">Email</label>
-    <input type="email" name="email" id="email">
+    <input type="email" name="email" id="email" value="{{old('email')}}">
     @error('email')
     <div style="color: red;">{{ $message }}</div>
     @enderror
